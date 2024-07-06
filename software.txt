@@ -1,0 +1,26 @@
+# Windows only
+7zip|winget install -e --id 7zip.7zip|
+nvcleanstall|winget install -e --id TechPowerUp.NVCleanstall|
+sandboxie|winget install -e --id Sandboxie.PlusWSL|
+foobar2000|winget install -e --id PeterPawlowski.foobar2000|
+jdownloader|winget install -e --id AppWork.JDownloader|
+
+# Internet
+brave|winget install -e --id Brave.Brave|yay -S --noconfirm brave-bin
+torbrowser|winget install -e --id TorProject.TorBrowser|
+qbittorrent|winget install -e --id qBittorrent.qBittorrent|pacman -S --noconfirm qbittorrent
+telegram|winget install -e --id Telegram.TelegramDesktop|pacman -S --noconfirm telegram-desktop
+
+# VPN clients
+warp|winget install -e --id Cloudflare.Warp|yay -S --noconfirm cloudflare-warp-bin
+
+# Multimedia
+mpv||yay -S --noconfirm mpv
+yt-dlp|winget install -e --id yt-dlp.yt-dlp|pacman -S --noconfirm yt-dlp
+
+# Gaming
+steam|winget install -e --id Valve.Steam|
+hydra|winget install -e --id HydraLauncher.Hydra|
+yuzu|winget install -e --id YuzuEmu.Yuzu.Mainline|
+Playnite.Playnite	# Alternative: Amazon.Games, Ubisoft.Connect
+afterburner|winget install -e --id Guru3D.Afterburner|

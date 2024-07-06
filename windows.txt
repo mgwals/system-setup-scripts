@@ -1,0 +1,31 @@
+# [x] Motherboard drivers
+# [x] Enable ultimate performance power plan
+# [x] Windows night light
+# [x] Colemak
+# [ ] Logitech Onboard Memory Manager / Logitech G HUB
+# [ ] Drivers Impresora
+
+
+#install mpv
+#install LDPlayer
+#install ObinsKit
+#install Steam Library Setup Tool
+
+-------------------------------------------------------------------------------------------
+Opcional
+Grammarly
+# [x] Discord / Vencord
+# [x] Stremio.Stremio
+# [ ] SumatraPDF.SumatraPDF
+# [ ] calibre
+# [ ] Xournal++
+# [ ] GIMP
+# [ ] Krita
+# [ ] LedgerLive
+# [ ] Autofirma
+# [ ] QEMU
+# [ ] obs-studio
+# [ ] Krita 					#Alternatives: Clip Studio Paint
+# [ ] Hyper-V					#Alternatives: QEMU or VMWare or Virtualbox
+# [ ] Huion driver
+Syncthing

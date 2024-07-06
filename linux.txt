@@ -1,0 +1,33 @@
+#!/bin/bash
+
+# Backup /home
+Disable mouse acceleration
+
+git
+Doom emacs # Alternative: neovim or alternative like nvchad
+-tlp, tlp-drw
+-systemctl enable tlp
+-syncthing
+-Borg
+-htop
+-neofetch
+-keepassxc
+Discord vencord vesktop
+Element                 # Any matrix client, like gomuks or matrix-commander
+Evolution, thunderbird
+Ledger Live
+Jdownloader o gestor descargas (que permita alldebrid a ser posible)
+Xournal++
+
+#VPN
+Cloudflare warp
+
+
+Calibre
+Stremio
+KODI
+Krita
+GIMP
+OBSStudio
+
+# Other software: Mullvad Browser, newsboat, zathura, vscode, rtorrent, vis, nvchad, emacs, pass, gopass, qtpass, TOR Browser, epiphany, GNOME Boxes, QEMU/KVM, Distrobox, Toolbox
