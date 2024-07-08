@@ -4,8 +4,8 @@ This repository contains scripts to automate the setup and configuration of soft
 
 ## Files
 
-- `install_windows.ps1`: PowerShell script to disable mouse acceleration, configure pagefile settings, and install software on Windows.
-- `install_arch.sh`: Bash script to install software on Arch Linux using yay or pacman.
+- `install_windows.ps1`: PowerShell script to disable mouse acceleration, configure pagefile settings, enable the Ultimate Performance power plan, and install software on Windows.
+- `install_arch.sh`: Bash script to install software on Arch Linux using pacman or yay, disable mouse acceleration in Sway, and set up BorgBackup automation with systemd.
 - `software.txt`: List of software to be installed with respective Windows and Arch Linux commands.
 
 ## Usage
@@ -15,7 +15,7 @@ This repository contains scripts to automate the setup and configuration of soft
 1. Open PowerShell as Administrator.
 2. Run the `install_windows.ps1` script:
    ```powershell
-   ./install_windows.ps1
+   .\install_windows.ps1
    ```
 
 ### Arch Linux
@@ -24,7 +24,14 @@ This repository contains scripts to automate the setup and configuration of soft
    ```sh
    chmod +x install_arch.sh
    ```
-2. Run the `install_arch.sh` script:
+2. Edit the BorgBackup configuration in the script:
+   - Locate the `/path/to/external-hdd` within the script.
+   - Replace it with the actual mount point of your external HDD (e.g. `/mnt/external`).
+   ```sh
+   local hdd_mount_point="/mnt/external"  # Change this to your actual mount point
+   ```
+
+3. Run the `install_arch.sh` script:
    ```sh
    ./install_arch.sh
    ```
@@ -40,6 +47,9 @@ Example:
 ```
 # VLC Media Player
 vlc|winget install -e --id VideoLAN.VLC|sudo pacman -S --noconfirm vlc
+
+# Brave Browser
+brave|winget install -e --id Brave.Brave|yay -S --noconfirm brave-bin
 ```
 
 ## License

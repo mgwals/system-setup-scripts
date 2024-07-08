@@ -7,7 +7,11 @@ function Install-SoftwareWindows {
 
     if ($WindowsCmd) {
         Write-Output "Installing $SoftwareName on Windows..."
-        Invoke-Expression $WindowsCmd
+        try {
+            Invoke-Expression $WindowsCmd
+        } catch {
+            Write-Output "Failed to install $SoftwareName. Error: $_"
+        }
     } else {
         Write-Output "Skipping $SoftwareName on Windows (not available)."
     }
@@ -54,29 +58,48 @@ function Set-Pagefile {
     }
 }
 
+# Function to enable Ultimate Performance power plan
+function Enable-UltimatePerformancePowerPlan {
+    Write-Output "Enabling Ultimate Performance power plan..."
+    $powerPlanGUID = "e9a42b02-d5df-448d-aa00-03f14749eb61"
+    powercfg -duplicatescheme $powerPlanGUID
+    powercfg -setactive $powerPlanGUID
+}
+
 # Disable mouse acceleration
 Disable-MouseAccel
 
 # Set pagefile size to 20480 MB initial and 40960 MB maximum
 Set-Pagefile -InitialSizeMB 20480 -MaximumSizeMB 40960
 
+# Enable Ultimate Performance power plan
+Enable-UltimatePerformancePowerPlan
+
 Write-Output "====================="
-Write-Output "Remember to change the monitor's refresh rate manually to the highest available."
+Write-Output "Reminder: Perform the following tasks manually."
+Write-Output "1. Install Colemak."
+Write-Output "2. Change the monitor's refresh rate."
+Write-Output "3. Enable night light."
 Write-Output "====================="
 
-# Read common software list from file
-Get-Content software.txt | ForEach-Object {
-    # Skip lines that are comments or empty
-    if ($_ -match '^#.*$' -or [string]::IsNullOrWhiteSpace($_)) {
-        return
+# Read common software list from file if it exists
+if (Test-Path software.txt) {
+    Get-Content software.txt | ForEach-Object {
+        # Skip lines that are comments or empty
+        if ($_ -match '^#.*$' -or [string]::IsNullOrWhiteSpace($_)) {
+            return
+        }
+
+        $entry = $_ -split '[|]'
+        $softwareName = $entry[0]
+        $windowsCmd = $entry[1]
+        $archCmd = $entry[2]  # Ignore Arch command
+
+        Install-SoftwareWindows -SoftwareName $softwareName -WindowsCmd $windowsCmd
     }
-
-    $entry = $_ -split '[|]'
-    $softwareName = $entry[0]
-    $windowsCmd = $entry[1]
-    $archCmd = $entry[2]  # Ignore Arch command
-
-    Install-SoftwareWindows -SoftwareName $softwareName -WindowsCmd $windowsCmd
+} else {
+    Write-Output "software.txt file not found. Skipping software installation..."
 }
 
-Write-Output "Installation complete."
+Write-Output "Windows installation complete."
+

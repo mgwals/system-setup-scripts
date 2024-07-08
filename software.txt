@@ -1,26 +1,98 @@
-# Windows only
-7zip|winget install -e --id 7zip.7zip|
-nvcleanstall|winget install -e --id TechPowerUp.NVCleanstall|
-sandboxie|winget install -e --id Sandboxie.PlusWSL|
-foobar2000|winget install -e --id PeterPawlowski.foobar2000|
-jdownloader|winget install -e --id AppWork.JDownloader|
+# Additional Windows Software (Not available in winget)
+# These software need to be installed manually
+# - Motherboard drivers
+# - Logitech Onboard Memory Manager
+# - Printer drivers
+# - Huion driver
 
 # Internet
 brave|winget install -e --id Brave.Brave|yay -S --noconfirm brave-bin
-torbrowser|winget install -e --id TorProject.TorBrowser|
 qbittorrent|winget install -e --id qBittorrent.qBittorrent|pacman -S --noconfirm qbittorrent
+torbrowser|winget install -e --id TorProject.TorBrowser|
+
+# Communication
+element||pacman -S --noconfirm element-desktop
+discord|winget install -e --id Discord.Discord|pacman -S --noconfirm discord
+evolution||pacman -S --noconfirm evolution
 telegram|winget install -e --id Telegram.TelegramDesktop|pacman -S --noconfirm telegram-desktop
 
 # VPN clients
 warp|winget install -e --id Cloudflare.Warp|yay -S --noconfirm cloudflare-warp-bin
 
 # Multimedia
-mpv||yay -S --noconfirm mpv
+mpv|winget install -e --id mpv.net|yay -S --noconfirm mpv
 yt-dlp|winget install -e --id yt-dlp.yt-dlp|pacman -S --noconfirm yt-dlp
+foobar2000|winget install -e --id PeterPawlowski.foobar2000|
+
+# Documents
+syncthing|winget install -e --id SyncTrayzor.SyncTrayzor|pacman -S --noconfirm syncthing
+xournal++|winget install -e --id Xournal++.Xournal++|pacman -S --noconfirm xournalpp
+
+# Development
+git||pacman -S --noconfirm git
+emacs||pacman -S --noconfirm emacs # Install Doom Emacs manually
+
+# System Utilities
+7zip|winget install -e --id 7zip.7zip|
+htop||pacman -S --noconfirm htop
+neofetch||pacman -S --noconfirm neofetch
+keepassxc||pacman -S --noconfirm keepassxc
+
+# Backup
+borgbackup||pacman -S --noconfirm borg
+
+# Laptop Power Management (Linux)
+tlp||pacman -S --noconfirm tlp
+tlp-rdw||pacman -S --noconfirm tlp-rdw
+systemctl enable tlp|| # This needs to be run manually as it is a command, not a package
+
+# Other Software
+autofirma|winget install -e --id SpanishGovernment.Autofirma|yay -S --noconfirm autofirma-bin
+ledgerlive|winget install -e --id LedgerHQ.LedgerLive|yay -S --noconfirm ledger-live-bin
+jdownloader|winget install -e --id AppWork.JDownloader|
+obinskit|winget install -e --id ObinsKit.ObinsKit|
 
 # Gaming
 steam|winget install -e --id Valve.Steam|
 hydra|winget install -e --id HydraLauncher.Hydra|
 yuzu|winget install -e --id YuzuEmu.Yuzu.Mainline|
-Playnite.Playnite	# Alternative: Amazon.Games, Ubisoft.Connect
+playnite|winget install -e --id Playnite.Playnite|
+nvcleanstall|winget install -e --id TechPowerUp.NVCleanstall|
 afterburner|winget install -e --id Guru3D.Afterburner|
+
+# Optional Software (Not Essential or Alternatives)
+# The following software are either optional, alternatives, or need to be installed manually
+# - Any matrix client, like gomuks or matrix-commander
+# - Mullvad Browser
+# - newsboat
+# - zathura
+# - vscode
+# - rtorrent
+# - pass
+# - gopass
+# - qtpass
+# - TOR Browser
+# - Epiphany
+# - GNOME Boxes
+# - Hyper-V
+# - QEMU/KVM
+# - VMWare
+# - Virtualbox
+# - Distrobox
+# - Toolbox
+# - OBSStudio
+# - Calibre
+# - Stremio
+# - KODI
+# - Krita
+# - Clip Studio Paint
+# - GIMP
+# - Vencord / Vesktop
+# - SumatraPDF (SumatraPDF.SumatraPDF)
+# - Grammarly
+# - Amazon Games (Amazon.Games)
+# - Ubisoft Connect (Ubisoft.Connect)
+# - LDPlayer
+# - Logitech G HUB
+# - Neovim or alternative like NvChad
+# - Sandboxie.PlusWSL
