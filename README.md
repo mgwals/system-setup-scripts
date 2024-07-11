@@ -5,8 +5,8 @@ This repository contains scripts to automate the setup and configuration of soft
 ## Files
 
 - `install_windows.ps1`: PowerShell script to disable mouse acceleration, configure pagefile settings, enable the Ultimate Performance power plan, and install software on Windows.
-- `install_arch.sh`: Bash script to install software on Arch Linux using pacman or yay, disable mouse acceleration in Sway, and set up BorgBackup automation with systemd.
-- `software.txt`: List of software to be installed with respective Windows and Arch Linux commands.
+- `install_arch.sh`: Bash script to install software on Arch Linux using pacman or yay.
+- `software.txt`: Template file for users to list software to be installed with respective Windows and Arch Linux commands.
 
 ## Usage
 
@@ -24,13 +24,13 @@ This repository contains scripts to automate the setup and configuration of soft
    ```sh
    chmod +x install_arch.sh
    ```
-2. Edit the BorgBackup configuration in the script:
-   - Locate the `/path/to/external-hdd` within the script.
-   - Replace it with the actual mount point of your external HDD (e.g. `/mnt/external`).
-   ```sh
-   local hdd_mount_point="/mnt/external"  # Change this to your actual mount point
-   ```
-
+2. Fill in the `software.txt` file with the software you want to install.
+   - Follow the format: `software_name|windows_command|arch_command`
+   - Example:
+     ```text
+     # VLC Media Player
+     vlc|winget install -e --id VideoLAN.VLC|sudo pacman -S --noconfirm vlc
+     ```
 3. Run the `install_arch.sh` script:
    ```sh
    ./install_arch.sh
@@ -43,7 +43,12 @@ The `software.txt` file should contain entries in the following format:
 software_name|windows_command|arch_command
 ```
 
-Example:
+### Supported Package Managers
+
+- **Windows:** `winget`
+- **Arch Linux:** `pacman`, `yay`
+
+### Example Entries:
 ```
 # VLC Media Player
 vlc|winget install -e --id VideoLAN.VLC|sudo pacman -S --noconfirm vlc
